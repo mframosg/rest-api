@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from maestriabackend.api.views import users_api, fill_table
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/users/', users_api),
+    path('api/fill_table/', fill_table)
 ]
