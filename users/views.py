@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from maestriabackend.model import User
+from .model import User
 import random
 
 def users_api(request):
