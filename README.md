@@ -71,6 +71,10 @@ Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
       CREATE DATABASE nombre_de_tu_base_de_datos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
       ```
     - Asegúrate de reemplazar `nombre_de_tu_base_de_datos` con el nombre que deseas para tu base de datos.
+    - Ahora seleccionamos nuestra tabla creada:
+       ```sql
+      USE nombre_de_tu_base_de_datos;
+      ```
 
 4. **Crea la tabla necesaria**:
     - Ejecuta el siguiente comando SQL para crear la tabla `usuarios` con el formato especificado:
