@@ -98,11 +98,10 @@ Con tu entorno configurado y las dependencias instaladas, estás listo para ejec
 ## Postman
 
 **Llenar la tabla**:
-Se ha agregado un endpoint que llenará la tabla para poder realizar las consultas.
-- Método: GET
-- URL: http://127.0.0.1:8000/api/fill_table
+Se ha agregado un endpoint que llenará la tabla con el número de registros que se le indique. Para ello, puedes utilizar el endpoint en Postman:
+- URL: http://127.0.0.1:8000/api/fill_table/num_entries
 
-Para realizar consultas, puedes utilizar el endpoint en Postman:
+Para realizar consultas, puedes utilizar el endpoint en Postman y ya podras ver los resultados en formato JSON y tomar el tiempo de respuesta de la consulta:
 - Método: GET
 - URL: http://127.0.0.1:8000/api/users/
 
