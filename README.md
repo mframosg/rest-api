@@ -1,6 +1,6 @@
-# Proyecto REST API
+# Proyecto GraphQL API
 
-Este es un proyecto de API REST desarrollado utilizando Django.
+Este es un proyecto de API GraphQL desarrollado utilizando Django y Graphene. La API permite realizar peticiones GET sobre una base de datos mediante consultas GraphQL.
 
 ## Requisitos
 
@@ -12,37 +12,39 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos previos:
 Sigue estos pasos para configurar tu entorno de desarrollo:
 
 1. **Clonar el repositorio**:
-    - Con **Git** instalado, abre una terminal y ejecuta:
+    - Si tienes **Git** instalado, abre una terminal y ejecuta el siguiente comando para clonar el repositorio:
       ```bash
       git clone https://github.com/mframosg/GraphQL-API.git
       ```
-    - Sin Git, descarga el repositorio como ZIP desde GitHub y descomprímelo localmente.
+    - Si **no** tienes Git, puedes descargar el repositorio como un archivo ZIP desde GitHub y descomprimirlo en tu máquina local.
 
 2. **Crear y activar un entorno virtual**:
-    - Instala `virtualenv`:
+    - Instala `virtualenv` si aún no lo has hecho:
       ```bash
       pip install virtualenv
       ```
-    - Crea y activa un entorno virtual:
-      - **Windows**:
+    - Crea un entorno virtual llamado `myenv` (puedes nombrarlo como prefieras) dentro del directorio del proyecto:
+      ```bash
+      virtualenv myenv
+      ```
+    - Activa el entorno virtual:
+      - En **Windows**:
         ```bash
-        virtualenv myenv
         myenv\Scripts\activate
         ```
-      - **Unix/MacOS**:
+      - En **Unix/MacOS**:
         ```bash
-        virtualenv myenv
         source myenv/bin/activate
         ```
 
 3. **Instalar dependencias**:
-    - Con el entorno activo, instala las dependencias:
+    - Con el entorno virtual activado, instala las dependencias del proyecto ejecutando:
       ```bash
       pip install -r requirements.txt
       ```
 
 4. **Configurar variables de entorno**:
-    - Crea un `.env` en el directorio raíz para las configuraciones sensibles:
+    - Crea un archivo `.env` en el directorio raíz del proyecto para almacenar configuraciones sensibles, como las credenciales de la base de datos:
       ```plaintext
       DATABASE_NAME=nombre_de_tu_base_de_datos
       DATABASE_USER=nombre_de_usuario
@@ -52,27 +54,46 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       SECRET_KEY=tu_clave_secreta_de_django
       DEBUG=True # o False, en producción
       ```
-    - Reemplaza los placeholders con tus datos.
+    - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales.
 
-## Configuración de la Base de Datos MySQL
+## Configuración de MySQL Workbench
 
-Antes de ejecutar la aplicación, asegúrate de tener MySQL instalado y configurado:
+Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
 
-1. **Instalación de MySQL Workbench**: Descarga e instala desde [el sitio web oficial de MySQL](https://www.mysql.com/products/workbench/).
+1. **Instala MySQL Workbench**: Descarga e instala MySQL Workbench desde el [sitio web oficial](https://www.mysql.com/products/workbench/).
 
-2. **Creación de la base de datos**: Usa MySQL Workbench o la línea de comandos para crear tu base de datos.
+2. **Conéctate a tu servidor MySQL**: Abre MySQL Workbench y crea una nueva conexión al servidor MySQL donde deseas alojar tu base de datos. Introduce las credenciales de conexión necesarias.
 
-3. **Configuración en Django**: Asegúrate de que las credenciales en `.env` coincidan con tu configuración de MySQL.
+3. **Crea la base de datos**:
+    - Abre un nuevo query tab y ejecuta el siguiente comando SQL para crear tu base de datos:
+      ```sql
+      CREATE DATABASE nombre_de_tu_base_de_datos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+      ```
+    - Asegúrate de reemplazar `nombre_de_tu_base_de_datos` con el nombre que deseas para tu base de datos.
+
+4. **Crea la tabla necesaria**:
+    - Ejecuta el siguiente comando SQL para crear la tabla `usuarios` con el formato especificado:
+      ```sql
+      CREATE TABLE usuarios (
+          idusuario INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(100),
+          age INT
+      );
+      ```
+
+5. **Actualiza tu configuración de Django**: Asegúrate de que la configuración de la base de datos en el archivo `settings.py` de tu proyecto Django coincida con los detalles de la base de datos que acabas de crear.
 
 ## Ejecución del proyecto
 
+Con tu entorno configurado y las dependencias instaladas, estás listo para ejecutar el proyecto:
+
 1. **Ejecutar el servidor de desarrollo**:
-    - Inicia el servidor:
+    - Inicia el servidor de desarrollo con:
       ```bash
       python manage.py runserver
       ```
+    - Accede a `http://127.0.0.1:8000/graphql` en tu navegador o utiliza Postman/Insomnia para empezar a realizar consultas GraphQL a tu API.
 
-## Endpoint Adicional
+## Documentación adicional
 
-- **/fill_table/**: Este endpoint permite llenar la base de datos. Accede a él después de configurar la base de datos y antes de realizar consultas.
-
+Esta aplicación es la continuación del primer backend realizado en Django pero ahora basado en GraphQL. Para más información sobre el proyecto original REST: [API REST en Django](https://github.com/mframosg/rest-api).
