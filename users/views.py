@@ -1,6 +1,8 @@
 from django.http import JsonResponse
 from .model import User
 import random
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 class UserFormatter:
     @staticmethod
@@ -26,6 +28,8 @@ def users_api(request):
     formatted_users = [UserFormatter.format(user) for user in users]
     return JsonResponse(formatted_users, safe=False)
 
+@csrf_exempt
+@require_POST
 def fill_table(request, num_entries):
     User.objects.all().delete()  # Truncate the table
 
