@@ -1,38 +1,78 @@
-# Nombre del Proyecto
+# Proyecto REST API
 
-Breve descripción del proyecto.
+Este es un proyecto de API REST desarrollado utilizando Django.
 
 ## Requisitos
 
-- Python (version X.X)
-- Django (version X.X)
-- Otros requisitos específicos del proyecto, si los hay
+Antes de comenzar, asegúrate de cumplir con los siguientes requisitos previos:
+- **Python**: Este proyecto requiere Python 3.8 o superior. Verifica tu versión de Python con el comando `python --version`. Puedes descargar la última versión de Python desde el [sitio web oficial de Python](https://www.python.org/downloads/).
 
-## Instalación
+## Configuración del entorno
 
-1. Clona este repositorio: `git clone https://github.com/tu_usuario/tu_proyecto.git`
-2. Instala las dependencias: `pip install -r requirements.txt`
-3. Configura la base de datos en `settings.py`
-4. Realiza las migraciones: `python manage.py migrate`
-5. Carga datos iniciales (si los hay): `python manage.py loaddata datos.json`
+Sigue estos pasos para configurar tu entorno de desarrollo:
 
-## Uso
+1. **Clonar el repositorio**:
+    - Con **Git** instalado, abre una terminal y ejecuta:
+      ```bash
+      git clone https://github.com/mframosg/GraphQL-API.git
+      ```
+    - Sin Git, descarga el repositorio como ZIP desde GitHub y descomprímelo localmente.
 
-1. Ejecuta el servidor de desarrollo: `python manage.py runserver`
-2. Accede a la aplicación desde tu navegador web: `http://localhost:8000`
+2. **Crear y activar un entorno virtual**:
+    - Instala `virtualenv`:
+      ```bash
+      pip install virtualenv
+      ```
+    - Crea y activa un entorno virtual:
+      - **Windows**:
+        ```bash
+        virtualenv myenv
+        myenv\Scripts\activate
+        ```
+      - **Unix/MacOS**:
+        ```bash
+        virtualenv myenv
+        source myenv/bin/activate
+        ```
 
-## Contribución
+3. **Instalar dependencias**:
+    - Con el entorno activo, instala las dependencias:
+      ```bash
+      pip install -r requirements.txt
+      ```
 
-1. Haz un fork del repositorio
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
-3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva característica'`)
-4. Haz push a la rama (`git push origin feature/nueva-caracteristica`)
-5. Crea un pull request
+4. **Configurar variables de entorno**:
+    - Crea un `.env` en el directorio raíz para las configuraciones sensibles:
+      ```plaintext
+      DATABASE_NAME=nombre_de_tu_base_de_datos
+      DATABASE_USER=nombre_de_usuario
+      DATABASE_PASSWORD=contraseña
+      DATABASE_HOST=dirección_del_host
+      DATABASE_PORT=número_de_puerto
+      SECRET_KEY=tu_clave_secreta_de_django
+      DEBUG=True # o False, en producción
+      ```
+    - Reemplaza los placeholders con tus datos.
 
-## Créditos
+## Configuración de la Base de Datos MySQL
 
-Autor del proyecto
+Antes de ejecutar la aplicación, asegúrate de tener MySQL instalado y configurado:
 
-## Licencia
+1. **Instalación de MySQL Workbench**: Descarga e instala desde [el sitio web oficial de MySQL](https://www.mysql.com/products/workbench/).
 
-Este proyecto está bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
+2. **Creación de la base de datos**: Usa MySQL Workbench o la línea de comandos para crear tu base de datos.
+
+3. **Configuración en Django**: Asegúrate de que las credenciales en `.env` coincidan con tu configuración de MySQL.
+
+## Ejecución del proyecto
+
+1. **Ejecutar el servidor de desarrollo**:
+    - Inicia el servidor:
+      ```bash
+      python manage.py runserver
+      ```
+
+## Endpoint Adicional
+
+- **/fill_table/**: Este endpoint permite llenar la base de datos. Accede a él después de configurar la base de datos y antes de realizar consultas.
+
