@@ -83,7 +83,7 @@ Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
       DATABASE_HOST=dirección_del_host #default is localhost
       DATABASE_PORT=número_de_puerto #mysql default is 3306
       ```
-    - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales.
+    - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales y borrar los comentarios generados para guía marcados con #.
 
 
 ## Ejecución del proyecto
@@ -95,7 +95,18 @@ Con tu entorno configurado y las dependencias instaladas, estás listo para ejec
       ```bash
       python manage.py runserver
       ```
+## Postman
+
+**Llenar la tabla**:
+Se ha agregado un endpoint que llenará la tabla para poder realizar las consultas.
+- Método: GET
+- URL: http://127.0.0.1:8000/api/fill_table
+
+Para realizar consultas, puedes utilizar el endpoint en Postman:
+- Método: GET
+- URL: http://127.0.0.1:8000/api/users/
 
 ## Documentación adicional
 
 Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en graphql: [API REST en Django](https://github.com/mframosg/graphql-api).
+
