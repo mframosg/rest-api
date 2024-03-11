@@ -99,6 +99,8 @@ Con tu entorno configurado y las dependencias instaladas, estás listo para ejec
 
 **Llenar la tabla**:
 Se ha agregado un endpoint que llenará la tabla con el número de registros que se le indique. Para ello, puedes utilizar el endpoint en Postman:
+- Método: POST
+- num_entries: Número de registros que se desean agregar
 - URL: http://127.0.0.1:8000/api/fill_table/num_entries
 
 Para realizar consultas, puedes utilizar el endpoint en Postman y ya podras ver los resultados en formato JSON y tomar el tiempo de respuesta de la consulta:
