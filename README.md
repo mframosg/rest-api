@@ -45,18 +45,7 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       ```bash
       pip install -r requirements.txt
       ```
-
-4. **Configurar variables de entorno**:
-    - Crea un archivo `.env` en el directorio raíz del proyecto para almacenar configuraciones sensibles, como las credenciales de la base de datos:
-      ```plaintext
-      DATABASE_NAME=nombre_de_tu_base_de_datos
-      DATABASE_USER=nombre_de_usuario
-      DATABASE_PASSWORD=contraseña
-      DATABASE_HOST=dirección_del_host #default is localhost
-      DATABASE_PORT=número_de_puerto #mysql default is 3306
-      ```
-    - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales.
-
+      
 ## Configuración de MySQL Workbench
 
 Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
@@ -85,8 +74,17 @@ Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
           age INT
       );
       ```
+5. **Configurar variables de entorno**:
+    - Crea un archivo `.env` en el directorio raíz del proyecto para almacenar configuraciones sensibles, como las credenciales de la base de datos:
+      ```plaintext
+      DATABASE_NAME=nombre_de_tu_base_de_datos
+      DATABASE_USER=nombre_de_usuario
+      DATABASE_PASSWORD=contraseña
+      DATABASE_HOST=dirección_del_host #default is localhost
+      DATABASE_PORT=número_de_puerto #mysql default is 3306
+      ```
+    - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales.
 
-5. **Actualiza tu configuración de Django**: Asegúrate de que la configuración de la base de datos en el archivo `settings.py` de tu proyecto Django coincida con los detalles de la base de datos que acabas de crear.
 
 ## Ejecución del proyecto
 
