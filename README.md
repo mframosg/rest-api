@@ -1,6 +1,6 @@
-# Proyecto GraphQL API
+# Proyecto REST API
 
-Este es un proyecto de API GraphQL desarrollado utilizando Django y Graphene. La API permite realizar peticiones GET sobre una base de datos mediante consultas GraphQL.
+Este es un proyecto de API REST desarrollado utilizando Django. La API permite realizar peticiones GET sobre una base de datos MySQL para hacer pruebas de grandes volúmenes de datos.
 
 ## Requisitos
 
@@ -14,10 +14,10 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
 1. **Clonar el repositorio**:
     - Si tienes **Git** instalado, abre una terminal y ejecuta el siguiente comando para clonar el repositorio:
       ```bash
-      git clone https://github.com/mframosg/GraphQL-API.git
+      git clone https://github.com/mframosg/rest-api.git
       ```
       ```bash
-      cd GraphQL-API
+      cd Rest-Api
       ```
     - Si **no** tienes Git, puedes descargar el repositorio como un archivo ZIP desde GitHub y descomprimirlo en tu máquina local.
 
@@ -95,8 +95,7 @@ Con tu entorno configurado y las dependencias instaladas, estás listo para ejec
       ```bash
       python manage.py runserver
       ```
-    - Accede a `http://127.0.0.1:8000/graphql` en tu navegador o utiliza Postman/Insomnia para empezar a realizar consultas GraphQL a tu API.
 
 ## Documentación adicional
 
-Esta aplicación es la continuación del primer backend realizado en Django pero ahora basado en GraphQL. Para más información sobre el proyecto original REST: [API REST en Django](https://github.com/mframosg/rest-api).
+Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en graphql: [API REST en Django](https://github.com/mframosg/graphql-api).
