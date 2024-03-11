@@ -52,10 +52,8 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       DATABASE_NAME=nombre_de_tu_base_de_datos
       DATABASE_USER=nombre_de_usuario
       DATABASE_PASSWORD=contraseña
-      DATABASE_HOST=dirección_del_host
-      DATABASE_PORT=número_de_puerto
-      SECRET_KEY=tu_clave_secreta_de_django
-      DEBUG=True # o False, en producción
+      DATABASE_HOST=dirección_del_host #default is localhost
+      DATABASE_PORT=número_de_puerto #mysql default is 3306
       ```
     - Asegúrate de reemplazar los valores de placeholder con tus configuraciones reales.
 
