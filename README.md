@@ -16,6 +16,9 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       ```bash
       git clone https://github.com/mframosg/GraphQL-API.git
       ```
+      ```bash
+      cd GraphQL-API
+      ```
     - Si **no** tienes Git, puedes descargar el repositorio como un archivo ZIP desde GitHub y descomprimirlo en tu máquina local.
 
 2. **Crear y activar un entorno virtual**:
