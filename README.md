@@ -108,5 +108,5 @@ Para realizar consultas, puedes utilizar el endpoint en Postman:
 
 ## Documentación adicional
 
-Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en graphql: [API REST en Django](https://github.com/mframosg/graphql-api).
+Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en graphql: [API GRAPHQL en Django](https://github.com/mframosg/graphql-api).
 
