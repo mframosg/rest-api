@@ -7,3 +7,9 @@ class User(models.Model):
     class Meta:
         db_table = 'usuarios'
         
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'age': self.age
+        }
+        

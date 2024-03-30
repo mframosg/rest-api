@@ -21,5 +21,5 @@ from users.views import users_api, fill_table
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/users/', users_api),
-    path('api/fill_table/<int:num_entries>/', fill_table)
+    path('api/fill_table/', fill_table)
 ]

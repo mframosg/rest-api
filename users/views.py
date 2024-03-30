@@ -1,44 +1,33 @@
-from django.http import JsonResponse
-from .model import User
-import random
+from django.http import JsonResponse, HttpResponseBadRequest
+from .models import User
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from faker import Faker
+import json
 
-class UserFormatter:
-    @staticmethod
-    def format(user):
-        return {
-            'nombre': user.name,
-            'edad': user.age
-        }
-
-class RandomUserGenerator:
-    NAMES = ['Juan', 'Maria', 'Pedro', 'Ana', 'Luis', 'Sofia', 'Diego', 'Laura', 'Carlos', 'Miguel']
-
-    @staticmethod
-    def generate_name():
-        return random.choice(RandomUserGenerator.NAMES)
-
-    @staticmethod
-    def generate_age():
-        return random.randint(18, 70)
+fake = Faker()
 
 def users_api(request):
-    users = User.objects.all()
-    formatted_users = [UserFormatter.format(user) for user in users]
-    return JsonResponse(formatted_users, safe=False)
+    users = User.objects.values('name', 'age')
+    return JsonResponse(list(users), safe=False)
 
 @csrf_exempt
 @require_POST
-def fill_table(request, num_entries):
+def fill_table(request):
+    try:
+        data = json.loads(request.body)
+        num_entries = data['num_entries']
+    except (KeyError, json.JSONDecodeError):
+        return HttpResponseBadRequest('Invalid request body')
+    
     User.objects.all().delete()  # Truncate the table
 
-    for _ in range(int(num_entries)):
-        name = RandomUserGenerator.generate_name()
-        age = RandomUserGenerator.generate_age()
-        User.objects.create(name=name, age=age)
+    users = (User(name=fake.name(), age=fake.random_int(min=18, max=70)) for _ in range(int(num_entries)))
+    User.objects.bulk_create(users)
+
+    num_inserted_users = User.objects.count()
 
     response = {
-        'message': f'Se han insertado {num_entries} usuarios en la base de datos.'
+        'message': f'Se han insertado {num_inserted_users} usuarios en la base de datos.'
     }
     return JsonResponse(response)
