@@ -37,7 +37,7 @@ def users_api(request):
             return HttpResponseBadRequest("Invalid age provided.")
 
     users = User.objects.filter(query)
-    users_list = list(users.values())
+    users_list = list(users.values('name', 'age', 'gender'))
 
     return JsonResponse(users_list, safe=False)
     
