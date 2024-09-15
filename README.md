@@ -8,7 +8,6 @@ Antes de comenzar, asegúrate de cumplir con los siguientes requisitos previos:
 - **Python**: Este proyecto requiere Python 3.8 o superior. Verifica tu versión de Python con el comando `python --version`. Puedes descargar la última versión de Python desde el [sitio web oficial de Python](https://www.python.org/downloads/).
 - **MySQL Workbench**: Este proyecto utiliza una base de datos MySQL. Necesitarás MySQL Workbench para gestionar la base de datos, disponible en el [sitio web oficial](https://www.mysql.com/products/workbench/).
 
-
 ## Configuración del entorno
 
 Sigue estos pasos para configurar tu entorno de desarrollo:
@@ -21,7 +20,7 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       ```bash
       cd Rest-Api
       ```
-    - Si **NO** tienes Git, descarga el proyecto como ZIP y descomprímelo..
+    - Si **NO** tienes Git, descarga el proyecto como ZIP y descomprímelo.
 
 2. **Crear y activar un entorno virtual**:
     - Instala `virtualenv` si aún no lo has hecho:
@@ -47,7 +46,7 @@ Sigue estos pasos para configurar tu entorno de desarrollo:
       ```bash
       pip install -r requirements.txt
       ```
-      
+
 ## Configuración de MySQL Workbench
 
 Para configurar tu base de datos en MySQL Workbench, sigue estos pasos:
@@ -108,19 +107,41 @@ Con tu entorno configurado y las dependencias instaladas, estás listo para ejec
       ```bash
       python manage.py runserver
       ```
-## Uso de la API GraphQL con Postman
 
-- **Para llenar la tabla con registros**:
-  Realiza la petición como POST a `http://127.0.0.1:8000/api/fill_table/` indicando el numero de registros que deseas guardar en el body:
-```
-  {
-    "num_entries":"200000"
-  }
-  ```
-**Advertencia**: Cada vez que uses el endpoint para agregar usuarios, la base de datos ejecutará un **TRUNCATE** a la tabla, eliminando todos los registros existentes antes de agregar los nuevos.
-- **Para recuperar usuarios**:
-  Realiza una consulta en Postman con la petición configurada como GET a `http://127.0.0.1:8000/api/users/` y ya podras ver los resultados en formato JSON y tomar el tiempo de respuesta de la consulta
+## Uso de la API REST con Postman
+
+Puedes utilizar Postman para realizar operaciones en la API REST. A continuación se detallan algunas de las operaciones disponibles:
+
+- **Llenar la Tabla con Registros**:
+  - **Método**: `POST`
+  - **URL**: `http://127.0.0.1:8000/api/fill_table/`
+  - **Cuerpo de la Solicitud**:
+    ```json
+    {
+      "num_entries": "200000"
+    }
+    ```
+  - **Advertencia**: Cada vez que uses este endpoint para agregar usuarios, la base de datos ejecutará un **TRUNCATE** a la tabla, eliminando todos los registros existentes antes de agregar los nuevos.
+
+- **Recuperar Todos los Usuarios**:
+  - **Método**: `GET`
+  - **URL**: `http://127.0.0.1:8000/api/users/`
+  - **Descripción**: Realiza una consulta para recuperar todos los usuarios. Los resultados se mostrarán en formato JSON y podrás tomar el tiempo de respuesta de la consulta.
+
+- **Recuperar Usuarios por Género**:
+  - **Método**: `GET`
+  - **URL**: `http://127.0.0.1:8000/api/users/?gender=m`
+  - **Parámetros de Consulta**:
+    - `gender`: "m"
+    - `age`: "36"
+    - `criteria`: "equal"
+  - **Descripción**: Realiza una consulta para recuperar usuarios con un género específico. Puedes ajustar los parámetros de consulta según sea necesario.
+
+- **Recuperar Usuarios por Condiciones de Género y Edad**:
+  - **Método**: `GET`
+  - **URL**: `http://127.0.0.1:8000/api/users/?gender=m&age=30&criteria=equal`
+  - **Descripción**: Realiza una consulta para recuperar usuarios que cumplan con condiciones específicas de género y edad.
+
 ## Documentación adicional
 
-Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en graphql: [API GRAPHQL en Django](https://github.com/mframosg/graphql-api).
-
+Esta es la primera parte del proyecto. Accede a la segunda parte para hacer pruebas en GraphQL: [API GRAPHQL en Django](https://github.com/mframosg/graphql-api).
